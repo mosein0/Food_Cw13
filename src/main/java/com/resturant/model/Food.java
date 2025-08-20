@@ -5,10 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table (name = "food_table")
-public class Food implements BaseEntity<Long> {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Food extends BaseEntity<Long> {
     private String name , category ;
     private Double price;
 
@@ -22,15 +19,7 @@ public class Food implements BaseEntity<Long> {
     }
 
 
-    @Override
-    public Long getId() {
-        return id;
-    }
 
-    @Override
-    public void setId(Long id ) {
-        this.id = id ;
-    }
 
     public String getName() {
         return name;
@@ -59,7 +48,6 @@ public class Food implements BaseEntity<Long> {
     @Override
     public String toString() {
         return "Food{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", price=" + price +
